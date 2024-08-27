@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from "next/script";
 import './globals.css';
 import Image from "next/image";
 
@@ -14,13 +15,13 @@ export const metadata: Metadata = {
 const header = (
   <header>
     <div>
-    <Link href="/">
-      <Image
-        alt="logo"
-        src="/blog/images/oyepriyansh.jpeg"
-        width={50}
-        height={50}
-      />
+      <Link href="/">
+        <Image
+          alt="logo"
+          src="/blog/images/oyepriyansh.jpeg"
+          width={50}
+          height={50}
+        />
         <h1>
           Priyansh's Blog
         </h1>
@@ -45,9 +46,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
+        <div>
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-LM2B0KC5LB" strategy="beforeInteractive" />
+          <Script src="https://oyepriyansh.pages.dev/cdnjs/analytics/oyepriyansh.github.io.js" strategy="beforeInteractive" />
           {header}
           {children}
           {footer}
+        </div>
       </body>
     </html>
   );
